@@ -4,16 +4,13 @@ def COLOR_MAP = [
     ]
 pipeline {
     agent any
-    tools {
-    maven 'maven'
-  }
-     environment {
+    environment {
         SCANNER_HOME = tool 'sonarqube'
     }
     stages {
         stage('git checkout') {
             steps {
-             git 'https://github.com/Sushmaa123/Java-Springboot.git'
+             git 'https://github.com/gow9629608170/CI-CD-PROJECT.git'
             }
         }
          stage('compile') {
@@ -48,8 +45,8 @@ pipeline {
             steps {
              script {
                 withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                    sh 'docker tag java-spring sushmagowda321/java-spring'
-                    sh 'docker push sushmagowda321/java-spring'
+                    sh 'docker tag java-spring gow9629608170/java-spring'
+                    sh 'docker push gow9629608170/java-spring'
                   }
               }
             }
