@@ -21,9 +21,9 @@ pipeline {
          stage('code analysis') {
             steps {
               withSonarQubeEnv('sonar-server') {
-               sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Java-Springboot \
+               sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=CI-CD-PROJECT \
                -Dsonar.java.binaries=. \
-               -Dsonar.projectKey=Java-Springboot'''
+               -Dsonar.projectKey=CI-CD-PROJECT'''
               }
             }
         }
